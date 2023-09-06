@@ -6,4 +6,4 @@ RUN ls
 FROM openjdk:18-jdk-alpine3.15
 COPY --from=MAVEN_BUILD /target/Dummy_Docker-1.0-SNAPSHOT-jar-with-dependencies.jar demo.jar
 
-ENTRYPOINT ["java", "-jar", "demo.jar"]
+ENTRYPOINT ["java", "-Dserver.port=$PORT", "-jar", "demo.jar"]
